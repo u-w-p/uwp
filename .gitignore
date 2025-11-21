@@ -1,0 +1,12 @@
+.idea/
+.vs/
+*.user
+/local
+thunderstore/GDWeave/mods/*.*
+
+bin/
+obj/
+*.zip
+*.dll
+*.pck
+*.7z

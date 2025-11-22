@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>MyModName</RootNamespace>
+    <RootNamespace>uwp.Unofficial_Webfishing_Patch</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AssemblySearchPaths>$(AssemblySearchPaths);$(GDWeavePath)/core;C:/Program Files (x86)/Steam/steamapps/common/WEBFISHING/GDWeave/core</AssemblySearchPaths>
-    <AssemblyName>MyModName</AssemblyName>
+    <AssemblyName>uwp.Unofficial_Webfishing_Patch</AssemblyName>
     <Version>0.0.1</Version>
     <Authors>Toes</Authors>
     <Company>Toes</Company>

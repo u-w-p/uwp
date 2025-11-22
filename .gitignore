@@ -3,6 +3,8 @@
 *.user
 /local
 thunderstore/GDWeave/mods/*.*
+manifestation.toml
+manifestation/
 
 bin/
 obj/

@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/icon.png-2c9aa4e6156540de818484c6d83bb744.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://gd/mods/uwp/icon.png"
-dest_files=[ "res://.import/icon.png-2c9aa4e6156540de818484c6d83bb744.stex" ]
-
+source_file="res://thunderstore/icon.png"
 [params]
 
 compress/mode=0

@@ -2,7 +2,7 @@
 
 param(
     [string]$Configuration = "Release",
-    [string]$ProjectPath = ".\GDWeave.Sample\MyModName.csproj",
+    [string]$ProjectPath = "scriptmod\uwp.Unofficial_Webfishing_Patch.csproj",
     [string]$GDWeavePath = "C:\Program Files (x86)\Steam\steamapps\common\WEBFISHING\GDWeave"
 )
 
@@ -13,19 +13,19 @@ dotnet restore $ProjectPath
 dotnet build $ProjectPath --configuration $Configuration --no-restore
 
 # GD Script Packages
-$PckPath ="..\gd\MyModName.pck"
+$PckPath =".\gd\uwp.pck"
 
 # Update Thunderstore manifest
 $ThunderstoreManifestPath = ".\thunderstore\manifest.json"
-$GDWeaveManifestPath = ".\GDWeave.Sample\manifest.json"
+$GDWeaveManifestPath = ".\scriptmod\manifest.json"
 $version = (Get-Content $GDWeaveManifestPath | ConvertFrom-Json).Metadata.Version
 $manifest = Get-Content $ThunderstoreManifestPath | ConvertFrom-Json
 $manifest.version_number = $version
 $manifest | ConvertTo-Json -Depth 1 | Set-Content $ThunderstoreManifestPath
 
 Copy-Item $PckPath ".\thunderstore\GDWeave\mods"
-Copy-Item ".\GDWeave.Sample\bin\Release\net8.0\MyModName.dll" ".\thunderstore\GDWeave\mods"
-Copy-Item ".\GDWeave.Sample\bin\Release\net8.0\manifest.json" ".\thunderstore\GDWeave\mods"
+Copy-Item ".\scriptmod\bin\Release\net8.0\uwp.dll" ".\thunderstore\GDWeave\mods"
+Copy-Item ".\scriptmod\bin\Release\net8.0\manifest.json" ".\thunderstore\GDWeave\mods"
 Copy-Item ".\LICENSE" ".\thunderstore"
 
 # Zip it up
@@ -34,7 +34,7 @@ $gitTagOrHash = if (git describe --exact-match --tags HEAD 2>$null) {
 } else {
     git rev-parse --short HEAD
 }
-$zipPath = ".\myModName_$gitTagOrHash.zip"
+$zipPath = ".\uwp_$gitTagOrHash.zip"
 Compress-Archive -Path @(
    ".\thunderstore\GDWeave",
    ".\thunderstore\icon.png",

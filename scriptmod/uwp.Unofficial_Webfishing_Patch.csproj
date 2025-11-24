@@ -1,33 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>uwp.Unofficial_Webfishing_Patch</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblySearchPaths>$(AssemblySearchPaths);$(GDWeavePath)/core;C:/Program Files (x86)/Steam/steamapps/common/WEBFISHING/GDWeave/core</AssemblySearchPaths>
-    <AssemblyName>uwp.Unofficial_Webfishing_Patch</AssemblyName>
-    <Version>0.0.1</Version>
-    <Authors>Toes</Authors>
-    <Company>Toes</Company>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>uwp.Unofficial_Webfishing_Patch</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblySearchPaths>$(AssemblySearchPaths);$(GDWeavePath)/core;C:/Program Files (x86)/Steam/steamapps/common/WEBFISHING/GDWeave/core</AssemblySearchPaths>
+		<AssemblyName>uwp</AssemblyName>
+		<Version>0.0.1</Version>
+		<Authors>UWP</Authors>
+		<Company>UWP</Company>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <Reference Include="GDWeave" Private="false" />
-        <Reference Include="Serilog" Private="false" />
-    </ItemGroup>
+	<ItemGroup>
+		<Reference Include="GDWeave" Private="false" />
+		<Reference Include="Serilog" Private="false" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
-    </ItemGroup>
+	<ItemGroup>
+		<None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
 
-    <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(GDWeavePath)' != ''">
-        <PropertyGroup>
-            <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))'">true</IsWindows>
-            <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'">true</IsLinux>
-        </PropertyGroup>
-        <Exec Command="xcopy /Y /I &quot;$(TargetDir)&quot; &quot;$(GDWeavePath)/mods/$(AssemblyName)&quot;" Condition="'$(IsWindows)' == 'true'" />
-        <Exec Command="cp -r $(TargetDir) '$(GDWeavePath)/mods/$(AssemblyName)/'" Condition="'$(IsLinux)' == 'true'" />
-    </Target>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(GDWeavePath)' != ''">
+		<PropertyGroup>
+			<IsWindows
+				Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))'"
+				>true</IsWindows
+			>
+			<IsLinux
+				Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'"
+				>true</IsLinux
+			>
+		</PropertyGroup>
+		<Exec
+			Command="xcopy /Y /I &quot;$(TargetDir)&quot; &quot;$(GDWeavePath)/mods/$(AssemblyName)&quot;"
+			Condition="'$(IsWindows)' == 'true'"
+		/>
+		<Exec Command="cp -r $(TargetDir) '$(GDWeavePath)/mods/$(AssemblyName)/'" Condition="'$(IsLinux)' == 'true'" />
+	</Target>
 </Project>
-
-

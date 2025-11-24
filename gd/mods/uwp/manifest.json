@@ -1,5 +1,6 @@
 {
   "Id": "uwp",
+  "AssemblyPath": "uwp.dll",
   "PackPath": "uwp.pck",
   "Dependencies": [],
   "Metadata": {

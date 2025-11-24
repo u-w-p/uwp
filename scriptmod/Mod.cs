@@ -2,12 +2,6 @@
 using util.LexicalTransformer;
 
 namespace uwp.Unofficial_Webfishing_Patch;
-
-/*
- The main entrypoint of your mod project
- This code here is invoked by GDWeave when loading your mod's DLL assembly, at runtime
-*/
-
 public class Mod : IMod
 {
 	public Mod(IModInterface mi)
@@ -27,9 +21,7 @@ public class Mod : IMod
 						// ! These names MUST be unique or your mod will throw an System.InvalidOperationException when loading !
 						.Named("dial_max -> Int limit")
 						.Do(Operation.ReplaceLast)
-						.Matching(
-							TransformationPatternFactory.CreateGdSnippetPattern("var dial_max = 12")
-						)
+						.Matching(TransformationPatternFactory.CreateGdSnippetPattern("var dial_max = 12"))
 						.With(
 							"""
 							2147483647
@@ -39,46 +31,45 @@ public class Mod : IMod
 				)
 				.AddRule(
 					new TransformationRuleBuilder()
-					// ! These names MUST be unique or your mod will throw an System.InvalidOperationException when loading !
-					.Named("max_set -> Int limit")
-					.Do(Operation.ReplaceLast)
-					.Matching(
-						TransformationPatternFactory.CreateGdSnippetPattern("var max_set = 12")
-					)
-					.With(
-						"""
-						2147483647
+						// ! These names MUST be unique or your mod will throw an System.InvalidOperationException when loading !
+						.Named("max_set -> Int limit")
+						.Do(Operation.ReplaceLast)
+						.Matching(TransformationPatternFactory.CreateGdSnippetPattern("var max_set = 12"))
+						.With(
+							"""
+							2147483647
 
-						"""
-					)
+							"""
+						)
 				)
 				.Build()
 		);
 
 		mi.RegisterScriptMod(
 			new TransformationRuleScriptModBuilder()
-			.ForMod(mi)
-			// ? Named solely for debugging/logging purposes
-			.Named("Remove Modded Tag")
-			// ! Note the file extension will end in gdc NOT gd
-			.Patching("res://Scenes/Menus/Main Menu/main_menu.gdc")
-			.AddRule(
-				new TransformationRuleBuilder()
-				// ! These names MUST be unique or your mod will throw an System.InvalidOperationException when loading !
-				.Named("Remove the lobby size > 12 check")
-				.Do(Operation.ReplaceAll)
-				.Matching(
-					TransformationPatternFactory.CreateGdSnippetPattern("""if int(lobby_cap) > 12: lobby_tags.append("modded")""")
+				.ForMod(mi)
+				// ? Named solely for debugging/logging purposes
+				.Named("Remove Modded Tag")
+				// ! Note the file extension will end in gdc NOT gd
+				.Patching("res://Scenes/Menus/Main Menu/main_menu.gdc")
+				.AddRule(
+					new TransformationRuleBuilder()
+						// ! These names MUST be unique or your mod will throw an System.InvalidOperationException when loading !
+						.Named("Remove the lobby size > 12 check")
+						.Do(Operation.ReplaceAll)
+						.Matching(
+							TransformationPatternFactory.CreateGdSnippetPattern(
+								"""if int(lobby_cap) > 12: lobby_tags.append("modded")"""
+							)
+						)
+						.With(
+							"""
+
+
+							"""
+						)
 				)
-				.With(
-					"""
-
-
-					"""
-				)
-			)
-
-			.Build()
+				.Build()
 		);
 		// }
 	}

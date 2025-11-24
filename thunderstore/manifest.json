@@ -1,5 +1,5 @@
 {
-  "name": "MyModName",
+  "name": "uwp",
   "author": "Your Name",
   "version_number": "0.0.1",
   "website_url": "https://github.com/binury/better_webfishing_mod_template",
@@ -9,4 +9,4 @@
     "toes-Socks-0.1000.0",
     "PuppyGirl-TackleBox-0.5.2"
   ]
-}   
+}

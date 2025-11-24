@@ -1,11 +1,13 @@
 {
-  "Id": "uwp.Unofficial_Webfishing_Patch",
-  "AssemblyPath": "adamantris.LobbyListUncap.dll",
+  "Id": "uwp",
+  "AssemblyPath": "uwp.dll",
+  "PackPath": "uwp.pck",
+  "Dependencies": [],
   "Metadata": {
     "Name": "Unofficial Webfishing Patch",
-    "Author": "uwp",
-    "Version": "0.0.1",
+    "Author": "UWP",
+    "Version": "0.0.2",
     "Description": "A collection of fixes for Webfishing",
-    "Homepage": "https://ko-fi.com/toooes"
+    "Homepage": ""
   }
 }

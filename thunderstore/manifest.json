@@ -1,12 +1,10 @@
 {
-  "name": "uwp",
-  "author": "Your Name",
-  "version_number": "0.0.1",
-  "website_url": "https://github.com/binury/better_webfishing_mod_template",
-  "description": "[Mod description for your Thunderstore listing]",
-  "dependencies": [
-    "NotNet-GDWeave-2.0.14",
-    "toes-Socks-0.1000.0",
-    "PuppyGirl-TackleBox-0.5.2"
-  ]
+    "name":  "Unofficial_Webfishing_Patch",
+    "author":  "UWP",
+    "website_url":  "https://github.com/u-w-p/uwp",
+    "description":  "A collection of fixes for Webfishing",
+    "version_number":  "0.0.4",
+    "dependencies":  [
+
+                     ]
 }

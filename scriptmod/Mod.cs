@@ -67,6 +67,46 @@ public class Mod : IMod
 				)
 				.Build()
 		);
+
+		mi.RegisterScriptMod(
+			new TransformationRuleScriptModBuilder()
+				.ForMod(mi)
+				.Named("Fix global distribution linear -> log")
+				.Patching("res://Scenes/Singletons/globals.gdc")
+				.AddRule(
+					new TransformationRuleBuilder()
+						.Named("Replace roll_for_size function")
+						.Do(Operation.Append)
+						.Matching(
+							TransformationPatternFactory.CreateGdSnippetPattern(
+								"""if not item_data.keys().has(item): return""",
+								1
+							)
+						)
+						.With(
+							"""
+
+							var avg = item_data[item]["file"].average_size
+							var sigma = 0.8
+							var mu = log(avg)
+							var RNG = RandomNumberGenerator.new()
+							RNG.randomize()
+
+							var rand = RNG.randfn(mu, sigma)
+							var size = exp(rand)
+							size = max(stepify(size, 0.01), 0.01)
+
+							var chance_of_mutation = 0.0002
+							var giant_multiplier = 1.5 + (150.0 / avg)
+							if RNG.randf() < chance_of_mutation: size *= giant_multiplier
+							return size
+
+							""",
+							1
+						)
+				)
+				.Build()
+		);
 		// }
 	}
 

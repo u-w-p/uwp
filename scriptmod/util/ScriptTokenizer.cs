@@ -407,6 +407,12 @@ public static class ScriptTokenizer
 							case "randf":
 								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathRandf));
 								break;
+							case "exp":
+								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathExp));
+								break;
+							case "log":
+								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathLog));
+								break;
 							default:
 								// We change this to trim the idName, otherwise the whitespace messes with the token
 								finalTokens.Add(new IdentifierToken(idName.Trim()));

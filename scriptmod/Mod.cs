@@ -87,6 +87,20 @@ public class Mod : IMod
 						.With(
 							"""
 
+							return _fixed_roll_item_size(item)
+
+							""",
+                            1
+                        )
+                )
+                .AddRule(
+                    new TransformationRuleBuilder()
+                        .Named("Add fixed roll function")
+                        .Do(Operation.Append)
+                        .Matching(TransformationPatternFactory.CreateGlobalsPattern())
+                        .With(
+                            """
+							func _fixed_roll_item_size(item):
 							var avg = item_data[item]["file"].average_size
 							var sigma = log(1.55)
 							var mu = log(avg)
@@ -94,16 +108,14 @@ public class Mod : IMod
 							RNG.randomize()
 
 							var rand = RNG.randfn(mu, sigma)
-							var size = exp(rand)
-							size = max(stepify(size, 0.01), 0.01)
-
+								var fishsize = exp(rand)
+								fishsize = max(stepify(fishsize, 0.01), 0.01)
 							var chance_of_mutation = 1/5000.0
 							var giant_multiplier = 1.5 + (150.0 / avg)
-							if RNG.randf() < chance_of_mutation: size *= giant_multiplier
-							return size
+								if RNG.randf() < chance_of_mutation: fishsize *= giant_multiplier
+								return fishsize
 
-							""",
-							1
+							"""
 						)
 				)
 				.Build()

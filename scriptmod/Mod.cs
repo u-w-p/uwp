@@ -88,7 +88,7 @@ public class Mod : IMod
 							"""
 
 							var avg = item_data[item]["file"].average_size
-							var sigma = 0.8
+							var sigma = log(1.55)
 							var mu = log(avg)
 							var RNG = RandomNumberGenerator.new()
 							RNG.randomize()

@@ -1,7 +1,8 @@
-﻿using GDWeave;
+using GDWeave;
 using util.LexicalTransformer;
 
 namespace uwp.Unofficial_Webfishing_Patch;
+
 public class Mod : IMod
 {
 	public Mod(IModInterface mi)
@@ -87,7 +88,7 @@ public class Mod : IMod
 							"""
 
 							var avg = item_data[item]["file"].average_size
-							var sigma = 0.8
+							var sigma = log(1.55)
 							var mu = log(avg)
 							var RNG = RandomNumberGenerator.new()
 							RNG.randomize()
@@ -96,7 +97,7 @@ public class Mod : IMod
 							var size = exp(rand)
 							size = max(stepify(size, 0.01), 0.01)
 
-							var chance_of_mutation = 0.0002
+							var chance_of_mutation = 1/5000.0
 							var giant_multiplier = 1.5 + (150.0 / avg)
 							if RNG.randf() < chance_of_mutation: size *= giant_multiplier
 							return size

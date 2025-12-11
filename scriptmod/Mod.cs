@@ -230,10 +230,8 @@ public class Mod : IMod
                             """
 
 							var HUD = get_node("/root/playerhud")
-							var caught = get_node("caught")
-							var owned = get_node("owned")
-							caught.visible = has_fish and not HUD.hud_hidden
-							owned.visible = has_fish and not HUD.hud_hidden
+							$caught.visible = has_fish and not HUD.hud_hidden
+							$owned.visible = has_fish and not HUD.hud_hidden
 
 							""",
                             1

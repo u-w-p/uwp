@@ -4,6 +4,7 @@
 
 - Fixed [fish trap/buddy indicators not hiding when player has hidden HUD](https://github.com/u-w-p/uwp/issues/9)
   - Cheers to Eleboots for reporting/requesting this patch!
+- Fixed [freecam movement triggering by mistake while typing](https://github.com/u-w-p/uwp/issues/4)
 
 ## v0.0.6
 

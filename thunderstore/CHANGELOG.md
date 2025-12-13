@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.0.9 - Guitar Audio Enhancement Patches
+
+- Changed polyphony of each string 4 -> 6
+- Loosened low-pass filter 8kHz -> 15 kHz
+- Added angled (245deg) attenuation for guitar sounds/realism
+
 ## v0.0.8
 
 - Hotfixed blinking buddy.owned arrow indicators caused by v0.0.7 changes

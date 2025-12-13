@@ -316,6 +316,60 @@ public class Mod : IMod
 				)
 				.Build()
 		);
+
+		// lobby code improvements - issue #20
+		mi.RegisterScriptMod(
+		    new TransformationRuleScriptModBuilder()
+		        .ForMod(mi)
+		        .Named("Lobby Code Improvements")
+		        .Patching("res://Scenes/Menus/Main Menu/main_menu.gdc")
+
+		        // rule 1: save lobby code for reuse
+		        .AddRule(
+		            new TransformationRuleBuilder()
+		                .Named("Save lobby code on join attempt")
+		                .Do(Operation.Prepend)
+		                .Matching(
+		                    TransformationPatternFactory.CreateGdSnippetPattern(
+		                        "Network._join_lobby(code)"
+		                    )
+		                )
+		                .With(
+		                    """
+
+		                    var config = ConfigFile.new()
+		                    config.set_value("lobby", "last_code", code)
+		                    config.save("user://lobby_settings.cfg")
+
+		                    """,
+		                    1
+		                )
+		        )
+
+		        // rule 2: load saved code on startup
+		        .AddRule(
+		            new TransformationRuleBuilder()
+		                .Named("Load last used lobby code")
+		                .Do(Operation.Append)
+		                .Matching(
+		                    TransformationPatternFactory.CreateFunctionDefinitionPattern("_ready", [])
+		                )
+		                .With(
+		                    """
+
+		                    var config = ConfigFile.new()
+		                    if config.load("user://lobby_settings.cfg") == OK:
+		                        var last_code = config.get_value("lobby", "last_code", "")
+		                        if last_code != "":
+		                            $VBoxContainer/code.text = last_code
+
+		                    """,
+		                    1
+		                )
+		        )
+
+		        .Build()
+		);
 	}
 
 	public void Dispose()

@@ -8,6 +8,7 @@ manifestation/
 
 bin/
 obj/
+gd/export_presets.cfg
 *.zip
 *.dll
 *.pck

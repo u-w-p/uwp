@@ -391,24 +391,7 @@ public static class ScriptTokenizer
                     return;
 				}
 
-                string trimmedName = idName.Trim();
-                /*
-                if (trimmedName == "return")
-                {
-                    // Hack to handle `return` being the last token of a line
-                    finalTokens.Add(new Token(TokenType.CfReturn));
-                }
-                else if (trimmedName == "self")
-                {
-                    // Hack to handle `self` being the last token of a line
-                    finalTokens.Add(new Token(TokenType.Self));
-                }
-                else
-                */
-                {
-                    // We change this to trim the idName, otherwise the whitespace messes with the token
-                    finalTokens.Add(new IdentifierToken(trimmedName));
-                }
+                finalTokens.Add(new IdentifierToken(idName.Trim()));
                 idName = string.Empty;
 
                 end();

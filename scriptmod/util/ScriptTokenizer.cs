@@ -1,4 +1,4 @@
-﻿// MIT License
+// MIT License
 //
 // Copyright (c) 2024 NotNite
 //
@@ -32,156 +32,173 @@ namespace util;
  */
 public static class ScriptTokenizer
 {
-	private static readonly Dictionary<string, TokenType> Tokens =
-		new()
-		{
-			{ "continue", TokenType.CfContinue },
-			{ "return", TokenType.CfReturn },
-			{ "break", TokenType.CfBreak },
-			{ "match", TokenType.CfMatch },
-			{ "while", TokenType.CfWhile },
-			{ "elif", TokenType.CfElif },
-			{ "else", TokenType.CfElse },
-			{ "pass", TokenType.CfPass },
-			{ "for", TokenType.CfFor },
-			{ "if", TokenType.CfIf },
-			{ "const", TokenType.PrConst },
-			{ "var", TokenType.PrVar },
-			{ "func", TokenType.PrFunction },
-			{ "class", TokenType.PrClass },
-			{ "extends", TokenType.PrExtends },
-			{ "is", TokenType.PrIs },
-			{ "as", TokenType.PrAs },
-			{ "onready", TokenType.PrOnready },
-			{ "@tool", TokenType.PrTool },
-			{ "@export", TokenType.PrExport },
-			{ "yield", TokenType.PrYield },
-			{ "setget", TokenType.PrSetget },
-			{ "static", TokenType.PrStatic },
-			{ "void", TokenType.PrVoid },
-			{ "enum", TokenType.PrEnum },
-			{ "preload", TokenType.PrPreload },
-			{ "assert", TokenType.PrAssert },
-			{ "signal", TokenType.PrSignal },
-			{ "breakpoint", TokenType.PrBreakpoint },
-			{ "sync", TokenType.PrSync },
-			{ "remote", TokenType.PrRemote },
-			{ "master", TokenType.PrMaster },
-			{ "slave", TokenType.PrSlave },
-			{ "puppet", TokenType.PrPuppet },
-			{ "remotesync", TokenType.PrRemotesync },
-			{ "mastersync", TokenType.PrMastersync },
-			{ "puppetsync", TokenType.PrPuppetsync },
-			{ "\n", TokenType.Newline },
-			{ "PI", TokenType.ConstPi },
-			{ "TAU", TokenType.ConstTau },
-			{ "INF", TokenType.ConstInf },
-			{ "NAN", TokenType.ConstNan },
-			{ "error", TokenType.Error },
-			{ "cursor", TokenType.Cursor },
-			{ "self", TokenType.Self },
-			{ "in", TokenType.OpIn },
-			{ "or", TokenType.OpOr },
-			{ "and", TokenType.OpAnd },
-			{ "not", TokenType.OpNot },
-			{ "_", TokenType.Wildcard },
-			{ "[", TokenType.BracketOpen },
-			{ "]", TokenType.BracketClose },
-			{ "{", TokenType.CurlyBracketOpen },
-			{ "}", TokenType.CurlyBracketClose },
-			{ "(", TokenType.ParenthesisOpen },
-			{ ")", TokenType.ParenthesisClose },
-			{ ",", TokenType.Comma },
-			{ ";", TokenType.Semicolon },
-			{ ".", TokenType.Period },
-			{ "?", TokenType.QuestionMark },
-			{ ":", TokenType.Colon },
-			{ "$", TokenType.Dollar },
-			{ "->", TokenType.ForwardArrow },
-			{ ">>=", TokenType.OpAssignShiftRight },
-			{ "<<=", TokenType.OpAssignShiftLeft },
-			{ ">>", TokenType.OpShiftRight },
-			{ "<<", TokenType.OpShiftLeft },
-			{ "==", TokenType.OpEqual },
-			{ "!=", TokenType.OpNotEqual },
-			{ "&&", TokenType.OpAnd },
-			{ "||", TokenType.OpOr },
-			{ "!", TokenType.OpNot },
-			{ "+=", TokenType.OpAssignAdd },
-			{ "-=", TokenType.OpAssignSub },
-			{ "*=", TokenType.OpAssignMul },
-			{ "/=", TokenType.OpAssignDiv },
-			{ "%=", TokenType.OpAssignMod },
-			{ "&=", TokenType.OpAssignBitAnd },
-			{ "|=", TokenType.OpAssignBitOr },
-			{ "^=", TokenType.OpAssignBitXor },
-			{ "+", TokenType.OpAdd },
-			{ "-", TokenType.OpSub },
-			{ "*", TokenType.OpMul },
-			{ "/", TokenType.OpDiv },
-			{ "%", TokenType.OpMod },
-			{ "~", TokenType.OpBitInvert },
-			{ "&", TokenType.OpBitAnd },
-			{ "|", TokenType.OpBitOr },
-			{ "^", TokenType.OpBitXor },
-			{ "<=", TokenType.OpLessEqual },
-			{ ">=", TokenType.OpGreaterEqual },
-			{ "<", TokenType.OpLess },
-			{ ">", TokenType.OpGreater },
-			{ "=", TokenType.OpAssign },
-		};
+	private static readonly IReadOnlyDictionary<string, TokenType> Tokens = new Dictionary<string, TokenType>
+    {
+        { "continue", TokenType.CfContinue },
+        { "return", TokenType.CfReturn },
+        { "break", TokenType.CfBreak },
+        { "match", TokenType.CfMatch },
+        { "while", TokenType.CfWhile },
+        { "elif", TokenType.CfElif },
+        { "else", TokenType.CfElse },
+        { "pass", TokenType.CfPass },
+        { "for", TokenType.CfFor },
+        { "if", TokenType.CfIf },
+        { "const", TokenType.PrConst },
+        { "var", TokenType.PrVar },
+        { "func", TokenType.PrFunction },
+        { "class", TokenType.PrClass },
+        { "extends", TokenType.PrExtends },
+        { "is", TokenType.PrIs },
+        { "as", TokenType.PrAs },
+        { "onready", TokenType.PrOnready },
+        { "@tool", TokenType.PrTool },
+        { "@export", TokenType.PrExport },
+        { "yield", TokenType.PrYield },
+        { "setget", TokenType.PrSetget },
+        { "static", TokenType.PrStatic },
+        { "void", TokenType.PrVoid },
+        { "enum", TokenType.PrEnum },
+        { "preload", TokenType.PrPreload },
+        { "assert", TokenType.PrAssert },
+        { "signal", TokenType.PrSignal },
+        { "breakpoint", TokenType.PrBreakpoint },
+        { "sync", TokenType.PrSync },
+        { "remote", TokenType.PrRemote },
+        { "master", TokenType.PrMaster },
+        { "slave", TokenType.PrSlave },
+        { "puppet", TokenType.PrPuppet },
+        { "remotesync", TokenType.PrRemotesync },
+        { "mastersync", TokenType.PrMastersync },
+        { "puppetsync", TokenType.PrPuppetsync },
+        { "\n", TokenType.Newline },
+        { "PI", TokenType.ConstPi },
+        { "TAU", TokenType.ConstTau },
+        { "INF", TokenType.ConstInf },
+        { "NAN", TokenType.ConstNan },
+        { "error", TokenType.Error },
+        { "cursor", TokenType.Cursor },
+        { "self", TokenType.Self },
+        { "in", TokenType.OpIn },
+        { "or", TokenType.OpOr },
+        { "and", TokenType.OpAnd },
+        { "not", TokenType.OpNot },
+        { "_", TokenType.Wildcard },
+        { "[", TokenType.BracketOpen },
+        { "]", TokenType.BracketClose },
+        { "{", TokenType.CurlyBracketOpen },
+        { "}", TokenType.CurlyBracketClose },
+        { "(", TokenType.ParenthesisOpen },
+        { ")", TokenType.ParenthesisClose },
+        { ",", TokenType.Comma },
+        { ";", TokenType.Semicolon },
+        { ".", TokenType.Period },
+        { "?", TokenType.QuestionMark },
+        { ":", TokenType.Colon },
+        { "$", TokenType.Dollar },
+        { "->", TokenType.ForwardArrow },
+        { ">>=", TokenType.OpAssignShiftRight },
+        { "<<=", TokenType.OpAssignShiftLeft },
+        { ">>", TokenType.OpShiftRight },
+        { "<<", TokenType.OpShiftLeft },
+        { "==", TokenType.OpEqual },
+        { "!=", TokenType.OpNotEqual },
+        { "&&", TokenType.OpAnd },
+        { "||", TokenType.OpOr },
+        { "!", TokenType.OpNot },
+        { "+=", TokenType.OpAssignAdd },
+        { "-=", TokenType.OpAssignSub },
+        { "*=", TokenType.OpAssignMul },
+        { "/=", TokenType.OpAssignDiv },
+        { "%=", TokenType.OpAssignMod },
+        { "&=", TokenType.OpAssignBitAnd },
+        { "|=", TokenType.OpAssignBitOr },
+        { "^=", TokenType.OpAssignBitXor },
+        { "+", TokenType.OpAdd },
+        { "-", TokenType.OpSub },
+        { "*", TokenType.OpMul },
+        { "/", TokenType.OpDiv },
+        { "%", TokenType.OpMod },
+        { "~", TokenType.OpBitInvert },
+        { "&", TokenType.OpBitAnd },
+        { "|", TokenType.OpBitOr },
+        { "^", TokenType.OpBitXor },
+        { "<=", TokenType.OpLessEqual },
+        { ">=", TokenType.OpGreaterEqual },
+        { "<", TokenType.OpLess },
+        { ">", TokenType.OpGreater },
+        { "=", TokenType.OpAssign },
+    };
 
-	private static readonly HashSet<string> Symbols =
-		new()
-		{
-			"->",
-			">>=",
-			"<<=",
-			">>",
-			"<<",
-			"==",
-			"!=",
-			"&&",
-			"||",
-			"!",
-			"+=",
-			"-=",
-			"*=",
-			"/=",
-			"%=",
-			"&=",
-			"|=",
-			"^=",
-			"_",
-			"[",
-			"]",
-			"{",
-			"}",
-			"(",
-			")",
-			",",
-			";",
-			".",
-			"?",
-			":",
-			"$",
-			"+",
-			"-",
-			"*",
-			"/",
-			"%",
-			"~",
-			"&",
-			"|",
-			"^",
-			"<=",
-			">=",
-			"<",
-			">",
-			"=",
-		};
+	private static readonly IReadOnlySet<string> Symbols = new HashSet<string>
+    {
+        "->",
+        ">>=",
+        "<<=",
+        ">>",
+        "<<",
+        "==",
+        "!=",
+        "&&",
+        "||",
+        "!",
+        "+=",
+        "-=",
+        "*=",
+        "/=",
+        "%=",
+        "&=",
+        "|=",
+        "^=",
+        "_",
+        "[",
+        "]",
+        "{",
+        "}",
+        "(",
+        ")",
+        ",",
+        ";",
+        ".",
+        "?",
+        ":",
+        "$",
+        "+",
+        "-",
+        "*",
+        "/",
+        "%",
+        "~",
+        "&",
+        "|",
+        "^",
+        "<=",
+        ">=",
+        "<",
+        ">",
+        "=",
+    };
 
-	private static readonly List<string> BuiltinFunctions = Enum.GetNames<BuiltinFunction>().ToList();
+	private static readonly IReadOnlyDictionary<string, BuiltinFunction> BuiltinFunctionsAliases = new Dictionary<string, BuiltinFunction>
+    {
+        {"log", BuiltinFunction.MathLog},
+        {"exp", BuiltinFunction.MathExp},
+        {"randf", BuiltinFunction.MathRandf},
+        {"randi", BuiltinFunction.MathRand},
+        {"abs", BuiltinFunction.MathAbs},
+        {"pow", BuiltinFunction.MathPow},
+        {"lerp_angle", BuiltinFunction.MathLerpAngle},
+        {"print", BuiltinFunction.TextPrint},
+    };
+
+    private static readonly IReadOnlyDictionary<string, uint> BuiltinTypeIds = new Dictionary<string, uint>
+    {
+        // https://docs.godotengine.org/en/3.5/tutorials/io/binary_serialization_api.html
+        // Magic numbers from above
+        {"int", 2},
+        {"Vector3", 7},
+        {"Color", 14},
+    };
 
 	private static void InsertNewLine(IEnumerator<string> enumerator, uint baseIndent, List<Token> toFlush)
 	{
@@ -305,12 +322,33 @@ public static class ScriptTokenizer
 				continue;
 			}
 
-			if (BuiltinFunctions.Contains(enumerator.Current))
+            if (BuiltinTypeIds.TryGetValue(enumerator.Current, out uint builtinType))
+            {
+				toFlush.Add(new Token(TokenType.BuiltInType, (uint?)builtinType));
+				endAndFlushId();
+				continue;
+            }
+
+            // Feels questionable null should be a type in a perfect world
+            if (enumerator.Current == "null")
+            {
+                toFlush.Add(new ConstantToken(new NilVariant()));
+				endAndFlushId();
+				continue;
+            }
+
+			if (Enum.TryParse<BuiltinFunction>(enumerator.Current, out BuiltinFunction builtinFunction))
 			{
-				toFlush.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunctions.IndexOf(enumerator.Current)));
+				toFlush.Add(new Token(TokenType.BuiltInFunc, (uint)builtinFunction));
 				endAndFlushId();
 				continue;
 			}
+            else if (BuiltinFunctionsAliases.TryGetValue(enumerator.Current, out builtinFunction))
+            {
+				toFlush.Add(new Token(TokenType.BuiltInFunc, (uint)builtinFunction));
+				endAndFlushId();
+				continue;
+            }
 
 			if (Tokens.TryGetValue(enumerator.Current, out var type))
 			{
@@ -347,89 +385,40 @@ public static class ScriptTokenizer
 
 			void endAndFlushId()
 			{
-				if (idName != string.Empty)
+				if (idName == string.Empty)
 				{
-					if (idName.Trim() == "return")
-					{
-						// Hack to handle `return` being the last token of a line
-						finalTokens.Add(new Token(TokenType.CfReturn));
-					}
-					else if (idName.Trim() == "self")
-					{
-						// Hack to handle `self` being the last token of a line
-						finalTokens.Add(new Token(TokenType.Self));
-					}
-					else
-						switch (idName.Trim())
-						{
-							// TODO: CALICO: clean up this hack
-							case "print":
-								// Without this, `print` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.TextPrint));
-								break;
-							case "null":
-								// Without this, `null` is tokenized as an identifier.
-								finalTokens.Add(new ConstantToken(new NilVariant()));
-								break;
-							case "break":
-								// Without this, `break` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.CfBreak));
-								break;
-							case "match":
-								// Without this, `match` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.CfMatch));
-								break;
-							case "Color":
-								// Without this, `Color` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.BuiltInType, 14));
-								break;
-							case "Vector3":
-								// Without this, `Vector3` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.BuiltInType, 7));
-								break;
-							case "lerp_angle":
-								// Without this, `lerp_angle` is tokenized as an identifier.
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathLerpAngle));
-								break;
-							case "int":
-								// https://docs.godotengine.org/en/3.5/tutorials/io/binary_serialization_api.html
-								finalTokens.Add(new Token(TokenType.BuiltInType, 2));
-								break;
-							case "pow":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathPow));
-								break;
-							case "abs":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathAbs));
-								break;
-							case "randi":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathRand));
-								break;
-							case "randf":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathRandf));
-								break;
-							case "exp":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathExp));
-								break;
-							case "log":
-								finalTokens.Add(new Token(TokenType.BuiltInFunc, (uint?)BuiltinFunction.MathLog));
-								break;
-							default:
-								// We change this to trim the idName, otherwise the whitespace messes with the token
-								finalTokens.Add(new IdentifierToken(idName.Trim()));
-								break;
-						}
-					idName = string.Empty;
+                    end();
+                    return;
 				}
 
-				end();
+                string trimmedName = idName.Trim();
+                /*
+                if (trimmedName == "return")
+                {
+                    // Hack to handle `return` being the last token of a line
+                    finalTokens.Add(new Token(TokenType.CfReturn));
+                }
+                else if (trimmedName == "self")
+                {
+                    // Hack to handle `self` being the last token of a line
+                    finalTokens.Add(new Token(TokenType.Self));
+                }
+                else
+                */
+                {
+                    // We change this to trim the idName, otherwise the whitespace messes with the token
+                    finalTokens.Add(new IdentifierToken(trimmedName));
+                }
+                idName = string.Empty;
+
+                end();
 			}
 		}
 
 		// We don't need this since we're dealing with snippets
 		//finalTokens.Add(new(TokenType.Newline, baseIndent));
 
-		foreach (var t in finalTokens)
-			yield return t;
+        return finalTokens.ToArray();
 	}
 
 	private static IEnumerable<string> SanitizeInput(IEnumerable<string> tokens)

@@ -150,7 +150,6 @@ public static class ScriptTokenizer
         "&=",
         "|=",
         "^=",
-        "_",
         "[",
         "]",
         "{",
@@ -298,21 +297,6 @@ public static class ScriptTokenizer
 				continue;
 			}
 
-			if (enumerator.Current == "_")
-			{
-				BuildIdentifierName(enumerator, toFlush, out string? found);
-				if (found == string.Empty)
-				{
-					endAndFlushId();
-					continue;
-				}
-
-				idName += found;
-
-				end();
-				continue;
-			}
-
 			//if (enumerator.Current == "-" || char.IsDigit(enumerator.Current[0])) {
 			if (char.IsDigit(enumerator.Current[0]))
 			{
@@ -350,7 +334,7 @@ public static class ScriptTokenizer
 				continue;
             }
 
-			if (Tokens.TryGetValue(enumerator.Current, out var type))
+			if (Tokens.TryGetValue(enumerator.Current, out TokenType type))
 			{
 				toFlush.Add(new Token(type));
 				endAndFlushId();
@@ -359,15 +343,15 @@ public static class ScriptTokenizer
 
 			if (enumerator.Current.StartsWith('"'))
 			{
-				var current = enumerator.Current;
+				string current = enumerator.Current;
 				toFlush.Add(new ConstantToken(new StringVariant(current.Substring(1, current.Length - 2))));
 				endAndFlushId();
 				continue;
 			}
 
-			if (bool.TryParse(enumerator.Current, out var resultB))
+			if (bool.TryParse(enumerator.Current, out var boolState))
 			{
-				toFlush.Add(new ConstantToken(new BoolVariant(resultB)));
+				toFlush.Add(new ConstantToken(new BoolVariant(boolState)));
 				endAndFlushId();
 				continue;
 			}

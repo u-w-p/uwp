@@ -341,7 +341,7 @@ public static class ScriptTokenizer
 				continue;
 			}
 
-			if (enumerator.Current.StartsWith('"'))
+			if (enumerator.Current.StartsWith('"') || enumerator.Current.StartsWith('\''))
 			{
 				string current = enumerator.Current;
 				toFlush.Add(new ConstantToken(new StringVariant(current.Substring(1, current.Length - 2))));
@@ -349,7 +349,7 @@ public static class ScriptTokenizer
 				continue;
 			}
 
-			if (bool.TryParse(enumerator.Current, out var boolState))
+			if (bool.TryParse(enumerator.Current, out bool boolState))
 			{
 				toFlush.Add(new ConstantToken(new BoolVariant(boolState)));
 				endAndFlushId();
@@ -406,41 +406,38 @@ public static class ScriptTokenizer
 		StringBuilder builder = new(20);
 		for (var i = 0; i < text.Length; i++)
 		{
-			switch (text[i])
-			{
-				case '"':
-				// TODO: support single quote strings
-				{
-					yield return ClearBuilder();
-					builder.Append('"');
-					i++;
-					for (; i < text.Length; i++)
-					{
-						builder.Append(text[i]);
-						if (text[i] == '"')
-						{
-							break;
-						}
-					}
+            if (text[i] == '\'' || text[i] == '"')
+            {
+                char delimiter = text[i];
+                yield return ClearBuilder();
+                builder.Append(delimiter);
+                i++;
+                for (; i < text.Length; i++)
+                {
+                    builder.Append(text[i]);
+                    if (text[i] == delimiter)
+                    {
+                        break;
+                    }
+                }
 
-					yield return ClearBuilder();
-					continue;
-				}
+                yield return ClearBuilder();
+                continue;
+            }
 
-				// This is stupid and awful
-				case '\n':
-				{
-					yield return ClearBuilder();
-					var start = i;
-					i++;
-					for (; i < text.Length && text[i] == '\t'; i++)
-						;
-					i--;
-					yield return "\n";
-					yield return $"{i - start}";
-					continue;
-				}
-			}
+            // This is stupid and awful
+            if (text[i] == '\n')
+            {
+                yield return ClearBuilder();
+                var start = i;
+                i++;
+                for (; i < text.Length && text[i] == '\t'; i++)
+                    ;
+                i--;
+                yield return "\n";
+                yield return $"{i - start}";
+                continue;
+            }
 
 			var matched = false;
 			foreach (var delimiter in Symbols)

@@ -21,6 +21,8 @@ This project aims to fix all remaining game issues and incomplete/unreleased con
 
 </details>
 
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ## 📚 Project Links
 

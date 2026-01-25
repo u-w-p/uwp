@@ -1,0 +1,17 @@
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  contrib-readme-job:
+    runs-on: ubuntu-latest
+    name: Add contributors to readme
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: ♥️ Contributor List
+        uses: akhilmhdh/contributors-readme-action@v2.3.11
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}

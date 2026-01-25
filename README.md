@@ -22,6 +22,40 @@ This project aims to fix all remaining game issues and incomplete/unreleased con
 </details>
 
 <!-- readme: contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/binury">
+                    <img src="https://avatars.githubusercontent.com/u/1146921?v=4" width="100;" alt="binury"/>
+                    <br />
+                    <sub><b>Toes | Robin Ury</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/adamantris">
+                    <img src="https://avatars.githubusercontent.com/u/152009291?v=4" width="100;" alt="adamantris"/>
+                    <br />
+                    <sub><b>adamantris</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/ai-kana">
+                    <img src="https://avatars.githubusercontent.com/u/109441902?v=4" width="100;" alt="ai-kana"/>
+                    <br />
+                    <sub><b>Kana</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/geringverdien">
+                    <img src="https://avatars.githubusercontent.com/u/43004098?v=4" width="100;" alt="geringverdien"/>
+                    <br />
+                    <sub><b>Eli</b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: contributors -end -->
 
 ## 📚 Project Links

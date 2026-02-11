@@ -41,17 +41,17 @@ This project aims to fix all remaining game issues and incomplete/unreleased con
                 </a>
             </td>
             <td align="center">
-                <a href="https://github.com/ai-kana">
-                    <img src="https://avatars.githubusercontent.com/u/109441902?v=4" width="100;" alt="ai-kana"/>
-                    <br />
-                    <sub><b>Kana</b></sub>
-                </a>
-            </td>
-            <td align="center">
                 <a href="https://github.com/geringverdien">
                     <img src="https://avatars.githubusercontent.com/u/43004098?v=4" width="100;" alt="geringverdien"/>
                     <br />
                     <sub><b>Eli</b></sub>
+                </a>
+            </td>
+            <td align="center">
+                <a href="https://github.com/ai-kana">
+                    <img src="https://avatars.githubusercontent.com/u/109441902?v=4" width="100;" alt="ai-kana"/>
+                    <br />
+                    <sub><b>Kana</b></sub>
                 </a>
             </td>
 		</tr>

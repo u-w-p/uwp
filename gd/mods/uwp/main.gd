@@ -7,7 +7,8 @@ var option_patches = preload("res://mods/uwp/patches/better-settings-numbers/bet
 var patches := [
 	preload("res://mods/uwp/patches/persistent-ignores.gd"),
 	preload("res://mods/uwp/patches/unlimit-props.gd"),
-	preload("res://mods/uwp/patches/delete-canvas.gd")
+	preload("res://mods/uwp/patches/delete-canvas.gd"),
+	preload("res://mods/uwp/patches/persistent-bans/persistent-bans.gd"),
 ]
 
 

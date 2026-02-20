@@ -24,8 +24,8 @@ public static class CleanerChalkCanvasses
 
 						if not get_node("/root/uwp/cleanerCanvasses").in_bounds(final.x, final.y, self): continue
 
-
-						"""
+						""",
+						indent: 4
 					)
 			)
 			.AddRule(
@@ -37,7 +37,8 @@ public static class CleanerChalkCanvasses
 
 						if not get_node("/root/uwp/cleanerCanvasses").in_bounds(pos.x, pos.y, self): continue
 
-						"""
+						""",
+						indent: 2
 					)
 			)
 			.Build();

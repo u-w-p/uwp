@@ -8,7 +8,8 @@ var patches := [
 	preload("res://mods/uwp/patches/persistent-ignores.gd"),
 	preload("res://mods/uwp/patches/unlimit-props.gd"),
 	preload("res://mods/uwp/patches/cleaner-chalk-canvasses.gd"),
-	preload("res://mods/uwp/patches/delete-canvas.gd")
+	preload("res://mods/uwp/patches/delete-canvas.gd"),
+	preload("res://mods/uwp/patches/persistent-bans/persistent-bans.gd"),
 ]
 
 

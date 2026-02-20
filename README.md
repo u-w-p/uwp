@@ -1,20 +1,22 @@
-# Unofficial Webfishing Patch
+# Unofficial WEBFISHING Patch
 
 ## ![Banner](https://i.imgur.com/bDzte0R.png)
 
-### A community contributed collection of fixes and minor QOL improvements for Webfishing
+### A community contributed collection of fixes and minor QOL improvements for WEBFISHING
 
-This project aims to fix all remaining game issues and incomplete/unreleased content.
+This project aims to fix all remaining game issues and restore incomplete/unreleased content.
 
 ## ✨ Features
 
 - Reasonable limit for amount of props (chair, rock, etc.) placed 1 (or 2) -> 12
 - Users blocked on Steam are now also blocked in-game
+- Banned players remain banned permanently between sessions
 - Lobbies with a player cap higher than 12 are no longer hidden from the lobby browser list
 - Lobbies with more than 12 players are not marked as `Modded`
 - Fish with unusual sizes now have their size prefix and worth multiplier applied correctly
 - Guitar audio quality improvements, MIDI playback improvement
 - Adds safeguards against some networking-related crashes
+- Mitigates chalk (canvas) griefing
 - Replaces the options entries for FPS, pixelization and view distance with more granular sliders
 - ...and _more_!
 
@@ -29,7 +31,7 @@ This project aims to fix all remaining game issues and incomplete/unreleased con
                 <a href="https://github.com/binury">
                     <img src="https://avatars.githubusercontent.com/u/1146921?v=4" width="100;" alt="binury"/>
                     <br />
-                    <sub><b>Toes | Robin Ury</b></sub>
+                    <sub><b>binury</b></sub>
                 </a>
             </td>
             <td align="center">
@@ -43,14 +45,14 @@ This project aims to fix all remaining game issues and incomplete/unreleased con
                 <a href="https://github.com/ai-kana">
                     <img src="https://avatars.githubusercontent.com/u/109441902?v=4" width="100;" alt="ai-kana"/>
                     <br />
-                    <sub><b>Kana</b></sub>
+                    <sub><b>ai-kana</b></sub>
                 </a>
             </td>
             <td align="center">
                 <a href="https://github.com/geringverdien">
                     <img src="https://avatars.githubusercontent.com/u/43004098?v=4" width="100;" alt="geringverdien"/>
                     <br />
-                    <sub><b>Eli</b></sub>
+                    <sub><b>geringverdien</b></sub>
                 </a>
             </td>
 		</tr>

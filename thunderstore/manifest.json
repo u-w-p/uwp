@@ -2,7 +2,7 @@
   "name": "Unofficial_Webfishing_Patch",
   "author": "UWP",
   "website_url": "https://github.com/u-w-p/uwp",
-  "description": "A collection of fixes for Webfishing",
-  "version_number": "1.1.1",
+  "description": "A collection of fixes and QOL improvements for Webfishing",
+  "version_number": "1.2.0",
   "dependencies": []
 }

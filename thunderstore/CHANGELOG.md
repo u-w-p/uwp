@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0 - Persistent bans
+
+- Players which you have banned from your lobbies in previous sessions will no longer become unbanned after you restart the game [(#63)](https://github.com/u-w-p/uwp/issues/63)
+  - You can manage this using the new `bans.txt` file in
+  - This list is transferable to [Cove](https://github.com/DrMeepso/WebFishingCove/)
+
 ## v1.1.0 - 🥊🎵, 🚫🎨
 
 - New patch: [chalk canvas prop griefing prevention](https://github.com/u-w-p/uwp/issues/55)

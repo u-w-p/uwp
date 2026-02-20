@@ -1,10 +1,11 @@
 # Changelog
 
-## v1.2.0 - Persistent bans
+## v1.2.0
 
-- Players which you have banned from your lobbies in previous sessions will no longer become unbanned after you restart the game [(#63)](https://github.com/u-w-p/uwp/issues/63)
-  - You can manage this using the new `bans.txt` file in
+- New patch: Players which you have banned from your lobbies in previous sessions will no longer become unbanned after you restart the game [(#63)](https://github.com/u-w-p/uwp/issues/63)
+  - You can manage this using the new `bans.txt` file in `%AppData%\godot\app_userdata\webfishing_2_newver`
   - This list is transferable to [Cove](https://github.com/DrMeepso/WebFishingCove/)
+- New patch: Drawing outside chalk circles is discarded properly! ([#62](https://github.com/u-w-p/uwp/issues/62))
 
 ## v1.1.0 - 🥊🎵, 🚫🎨
 

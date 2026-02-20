@@ -7,6 +7,7 @@ var option_patches = preload("res://mods/uwp/patches/better-settings-numbers/bet
 var patches := [
 	preload("res://mods/uwp/patches/persistent-ignores.gd"),
 	preload("res://mods/uwp/patches/unlimit-props.gd"),
+	preload("res://mods/uwp/patches/cleaner-chalk-canvasses.gd"),
 	preload("res://mods/uwp/patches/delete-canvas.gd"),
 	preload("res://mods/uwp/patches/persistent-bans/persistent-bans.gd"),
 ]
@@ -22,7 +23,7 @@ func _ready() -> void:
 
 func _load_patches() -> void:
 	for patch in patches:
-		add_child(patch.new())
+		add_child(patch.new(), true)
 
 
 func _join_tree(node: Node) -> void:

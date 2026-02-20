@@ -6,8 +6,8 @@
   "Metadata": {
     "Name": "Unofficial Webfishing Patch",
     "Author": "UWP",
-    "Version": "1.1.2",
-    "Description": "A collection of fixes for Webfishing",
-    "Homepage": ""
+    "Version": "1.2.0",
+    "Description": "A collection of fixes and QOL improvements for Webfishing",
+    "Homepage": "https://github.com/u-w-p/uwp"
   }
 }

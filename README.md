@@ -13,6 +13,7 @@ This project aims to fix all remaining game issues and restore incomplete/unrele
 - Banned players remain banned permanently between sessions
 - Lobbies with a player cap higher than 12 are no longer hidden from the lobby browser list
 - Lobbies with more than 12 players are not marked as `Modded`
+- Removes the barrier that prevents players from accessing the forest
 - Fish with unusual sizes now have their size prefix and worth multiplier applied correctly
 - Guitar audio quality improvements, MIDI playback improvement
 - Adds safeguards against some networking-related crashes

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.0
+
+- New patch: Removes the barrier that prevents players from accessing the forest
+
 ## v1.2.0
 
 - New patch: Players which you have banned from your lobbies in previous sessions will no longer become unbanned after you restart the game [(#63)](https://github.com/u-w-p/uwp/issues/63)

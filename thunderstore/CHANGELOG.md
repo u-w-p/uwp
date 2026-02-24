@@ -3,6 +3,7 @@
 ## v1.3.0
 
 - New patch: Removes the barrier that prevents players from accessing the forest
+- New main menu scene. We hope you like it!
 
 ## v1.2.0
 

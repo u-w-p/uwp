@@ -2,7 +2,9 @@
   "Id": "uwp",
   "AssemblyPath": "uwp.dll",
   "PackPath": "uwp.pck",
-  "Dependencies": [],
+  "Dependencies": [
+    "Sulayre.Lure"
+  ],
   "Metadata": {
     "Name": "Unofficial Webfishing Patch",
     "Author": "UWP",

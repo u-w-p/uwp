@@ -60,6 +60,28 @@ This project aims to fix all remaining game issues and restore incomplete/unrele
 	<tbody>
 </table>
 
+## 💛 Sponsored by
+
+<table>
+    <tbody>
+    <tr>
+    <td align="center">
+        <a href="https://fishcyan.com">
+        <img src="https://cdn.discordapp.com/icons/1379234143514132570/cd04d293dcbeab35f83634c752aed4a9.webp?size=128&quality=lossless" width="100" alt="24/7 Rainy Day"/>
+        <br />
+        <b>24/7 Rainy Day</b>
+        </a>
+    </td>
+    </tr>
+    </tbody>
+</table>
+
+## Supporting UWP
+
+_Unofficial WEBFISHING Patch_ is a GPL-licensed open source passion project with its ongoing development made possible entirely by volunteers. If you'd like to back their efforts, please consider:
+
+- [Becoming a patron on Patreon](https://patreon.com/u_w_p).
+
 ## 📚 Project Links
 
 - [Changelog](https://thunderstore.io/c/webfishing/p/uwp/Unofficial_Webfishing_Patch/changelog/)

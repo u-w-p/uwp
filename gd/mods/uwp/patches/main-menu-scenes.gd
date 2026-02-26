@@ -4,6 +4,13 @@ extends Node
 const DEBUG := false
 
 const scenes := [
+	## Default-ish
+	{
+		"fov": 55,
+		"near": 1.39,
+		"far": 8192,
+	},
+
 	## Bridge
 	{
 		"fov": 70,
@@ -35,6 +42,39 @@ const scenes := [
 				"y": -1.76
 			}
 		},
+
+	## Waterfall
+	{
+		 "fov": 70,
+			"near": 1.39,
+			"far": 8192,
+			"translation": {
+				"x": -18.9,
+				"y": 11.846,
+				"z": -76.36
+			},
+			"rotation_degrees": {
+				"x": 2.83,
+				"y": -147.76,
+				"z": 1.0
+			}
+		},
+
+		## Boat shop
+		{
+			"fov": 82,
+			"near": 1.39,
+			"far": 8192,
+			"translation": {
+				"x": 132.6,
+				"y": 2.582,
+				"z": -137.834
+			},
+			"rotation_degrees": {
+				"x": 5.1,
+				"y": 33.1
+			}
+	},
 ]
 
 
@@ -59,7 +99,9 @@ func on_node_add(node):
 
 	var cam = get_node("/root/main_menu/world/Viewport/main/track_camera/Camera")
 
-	## TODO: Allow selection or randomization
+	randomize()
+	scenes.shuffle()
+	## TODO: Allow selection
 	var scene_settings: Dictionary = scenes[0]
 	for prop in scene_settings.keys():
 		var val = scene_settings[prop]

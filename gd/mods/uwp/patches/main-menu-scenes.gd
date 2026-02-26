@@ -3,6 +3,40 @@ extends Node
 
 const DEBUG := false
 
+const scenes := [
+	## Bridge
+	{
+		"fov": 70,
+		"near": 1.39,
+		"far": 8192,
+		"translation": {
+			"x": 23.8,
+			"y": 5.5,
+			"z": -82.6
+		},
+		"rotation_degrees": {
+			"x": 9.0,
+			"y": 221.5
+		}
+	},
+
+	## Aquarium
+	{
+			"fov": 106,
+			"near": 1.39,
+			"far": 8192,
+			"translation": {
+				"x": -132.9,
+				"y": 5.848,
+				"z": -379.368
+			},
+			"rotation_degrees": {
+				"x": 2.84,
+				"y": -1.76
+			}
+		},
+]
+
 
 func _debug(msg, data = null) -> void:
 	if not DEBUG:
@@ -24,15 +58,17 @@ func on_node_add(node):
 		return
 
 	var cam = get_node("/root/main_menu/world/Viewport/main/track_camera/Camera")
-	cam.fov = 70
-	cam.near = 1.39
-	cam.far = 8192
-	cam.rotation_degrees.x = 9
-	cam.rotation_degrees.y = 221.5
 
-	# Spawn bridge
-	cam.translation.x = 23.8
-	cam.translation.y = 5.5
-	cam.translation.z = -82.6
-
-	# TODO: Add other camera scenes
+	## TODO: Allow selection or randomization
+	var scene_settings: Dictionary = scenes[0]
+	for prop in scene_settings.keys():
+		var val = scene_settings[prop]
+		if typeof(val) in [TYPE_INT, TYPE_REAL]:
+			cam[prop] = scene_settings[prop]
+		elif typeof(val) == TYPE_DICTIONARY:
+			for key in val.keys():
+				cam[prop][key] = val[key]
+		else:
+			# Invalid!!!
+			print_stack()
+			breakpoint

@@ -3,6 +3,8 @@
   "author": "UWP",
   "website_url": "https://github.com/u-w-p/uwp",
   "description": "A collection of fixes and QOL improvements for Webfishing",
-  "version_number": "1.2.0",
-  "dependencies": []
+  "version_number": "1.3.0",
+  "dependencies": [
+    "TeamLure-LureRefreshed-4.3.1"
+  ]
 }

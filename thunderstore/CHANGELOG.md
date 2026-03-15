@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.4.0
+
+- Changed: prop unlimit patch now also applies for `raincloud`s (3 -> 12)
+
 ## v1.3.0
 
 - New patch: Removes the barrier that prevents players from accessing the forest

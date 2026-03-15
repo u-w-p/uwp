@@ -25,10 +25,10 @@ func _update_prop_limits(world):
 
 		print(key, str(admin_only), str(limit))
 
-		if admin_only == false and key != "_" and limit < 10:
-			entry[2] = 12
-		# Birdpocalypse
-		# ambient_bird
+
+		# TODO: Exclude Players
+		if admin_only == false and key != "_" and limit < 10 or key == "raincloud":
+			entry[2] = 11
 	_debug("ACTOR_BANK Prop limits updated!")
 
 

@@ -51,6 +51,10 @@ func _join_tree(node: Node) -> void:
 					PlayerData.player_options.view_distance = 8192
 			OptionsMenu.emit_signal("_options_update")
 
+		yield (get_tree().create_timer(1.5), "timeout")
+		var lure_status_node := node.get_node_or_null("Status/Holder")
+		if lure_status_node: lure_status_node.visible = false
+
 	if in_game:
 		get_tree().disconnect("node_added", self, "_join_tree")
 		self._load_patches()

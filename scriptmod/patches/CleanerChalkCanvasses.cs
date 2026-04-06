@@ -18,7 +18,10 @@ public static class CleanerChalkCanvasses
 			.AddRule(
 				new TransformationRuleBuilder()
 					.Named("Add drawing bounds check")
-					.Matching(TransformationPatternFactory.CreateGdSnippetPattern("_clamp_cell(pos + Vector2(x, y))"))
+					// Trying to match Vector2 isn't working currently in the snippet generator
+					// so we'll just match the (x, y) part of
+					// `_clamp_cell(pos + Vector2(x, y))`
+					.Matching(TransformationPatternFactory.CreateGdSnippetPattern("(x, y))"))
 					.With(
 						"""
 

@@ -4,24 +4,43 @@
 
 ### A community contributed collection of fixes and minor QOL improvements for WEBFISHING
 
-This project aims to fix all remaining game issues and restore incomplete/unreleased content.
+This project aims to **fix all remaining game issues and _restore incomplete/unreleased content_**.
 
 ## ✨ Features
 
-- Reasonable limit for amount of props (chair, rock, etc.) placed 1 (or 2) -> 12
-- Users blocked on Steam are now also blocked in-game
-- Banned players remain banned permanently between sessions
-- Lobbies with a player cap higher than 12 are no longer hidden from the lobby browser list
-- Lobbies with more than 12 players are not marked as `Modded`
+- Reasonable limit for amount of props (chair, rock, clouds, etc.) placed -> 12
 - Removes the barrier that prevents players from accessing the forest
 - Fish with unusual sizes now have their size prefix and worth multiplier applied correctly
 - Guitar audio quality improvements, MIDI playback improvement
 - Adds safeguards against some networking-related crashes
 - Mitigates chalk (canvas) griefing
-- Replaces the options entries for FPS, pixelization and view distance with more granular sliders
+- Users blocked on Steam are now also blocked in-game
+- Banned players remain banned permanently between sessions
+- Lobbies with a player cap higher than 12 are no longer hidden from the lobby browser list
+- Lobbies with more than 12 players are not marked as `Modded`
+- Enhanced granular settings for frame rate, pixelization and view distance with sliders
 - ...and _more_!
 
 </details>
+
+## Restored content
+
+### Completed
+
+- Unused fish
+
+### Planned content restoration
+
+- Bird species
+- Bug catching
+- Player housing
+
+## Known issues
+
+A list of issues is maintained [here](https://github.com/u-w-p/uwp/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug). You may report issues on that page or let us know on the Modfishing Discord.
+
+> [!CAUTION]
+> Should you choose to do so, uninstalling UWP necessitates that you **reset your settings [file]** due to UWP's improved settings format not being backwards compatible
 
 ## ♥️ Developed by
 

@@ -22,6 +22,8 @@ func _ready() -> void:
 	self.add_child(menu_scenes.new())
 	self.add_child(config_handler.instance(), true)
 	self.add_child(option_patches.new())
+	# TODO: SET THIS DYNAMICALLY FROM MANIFEST.json
+	OS.set_window_title("WEBFISHING [UWP] v1.5.1")
 
 
 func _load_patches() -> void:
@@ -48,6 +50,10 @@ func _join_tree(node: Node) -> void:
 				0:
 					PlayerData.player_options.view_distance = 8192
 			OptionsMenu.emit_signal("_options_update")
+
+		yield (get_tree().create_timer(1.5), "timeout")
+		var lure_status_node := node.get_node_or_null("Status/Holder")
+		if lure_status_node: lure_status_node.visible = false
 
 	if in_game:
 		get_tree().disconnect("node_added", self, "_join_tree")

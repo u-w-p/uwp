@@ -23,7 +23,7 @@ func _ready() -> void:
 	self.add_child(config_handler.instance(), true)
 	self.add_child(option_patches.new())
 	# TODO: SET THIS DYNAMICALLY FROM MANIFEST.json
-	OS.set_window_title("WEBFISHING [UWP] v1.5.0")
+	OS.set_window_title("WEBFISHING [UWP] v1.5.1")
 
 
 func _load_patches() -> void:

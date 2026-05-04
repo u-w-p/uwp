@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.0
+
+- Hotfixed anti-chalk-griefing patch not loading
+- Window title now changes to indicate when UWP has loaded and what version you have installed
+
 ## v1.4.0
 
 - Changed: prop unlimit patch now also applies for `raincloud`s (3 -> 12)

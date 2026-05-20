@@ -38,9 +38,9 @@ func _add_ignore(id_or_ids):
 
 func _get_ignored_steam_users() -> void:
 	var ignored_users := []
-	for i in range(Steam.getFriendCount(Steam.FRIEND_FLAG_BLOCKED | Steam.FRIEND_FLAG_IGNORED)):
-		yield(get_tree().create_timer(0.4), "timeout")
-		var steam_id = Steam.getFriendByIndex(i, Steam.FRIEND_FLAG_BLOCKED | Steam.FRIEND_FLAG_IGNORED)
+	for i in range(Steam.getFriendCount(Steam.FRIEND_FLAG_BLOCKED)):
+		yield(get_tree().create_timer(0.4), "timeout") # This delay value is a guess and can probably be reduced
+		var steam_id = Steam.getFriendByIndex(i, Steam.FRIEND_FLAG_BLOCKED)
 		ignored_users.append(steam_id)
 	_debug("ignored users", ignored_users)
 	self._add_ignore(ignored_users)

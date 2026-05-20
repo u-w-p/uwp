@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.5.2 — Persistent ignores hotfix
+
+- IMPORTANT: Please double check your blocked users list for unexpected players. If you ignored a friend request from a Steam user they may have been mistakenly added to the `Blocked Users` list and muted in-game due to a misunderstanding on our part… Steam considers ignored friend invites the same as 'ignoring' the player.
+- `%AppData%\godot\app_userdata\webfishing_2_newver\ignores.sav`
+- If you have not edited it in the past you may simply delete this file and allow UWP 1.5.2 to regenerate it without the 'Ignored' (friend request) players.
+
 ## v1.5.0
 
 - Hotfixed anti-chalk-griefing patch not loading

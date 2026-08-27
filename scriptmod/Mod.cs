@@ -22,6 +22,7 @@ public class Mod : IMod
 		mi.RegisterScriptMod(UnlistedLobbyPatch.Create(mi));
 		mi.RegisterScriptMod(ClampPunchCountPatch.Create(mi));
 		mi.RegisterScriptMod(CleanerChalkCanvasses.Create(mi));
+		mi.RegisterScriptMod(CosmeticsDefaultPatch.Create(mi));
 	}
 
 	public void Dispose()

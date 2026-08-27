@@ -13,9 +13,9 @@ func _debug(msg, data = null) -> void:
 
 
 func _ready():
-    get_tree().connect("node_added", self, "on_node_add")
+	get_tree().connect("node_added", self, "on_node_add")
 
 
 func on_node_add(node):
-    if node.name == "invis_walls":
-        node.queue_free()
+	if node.name == "invis_walls":
+		node.queue_free()
